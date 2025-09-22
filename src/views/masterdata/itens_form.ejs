@@ -1,0 +1,50 @@
+<h3 class="mb-3">Novo item</h3>
+<form method="post" action="/cadastros/itens">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Nome</label>
+      <input class="form-control" name="nome" required />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Código</label>
+      <input class="form-control" name="codigo" />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Estoque mínimo</label>
+      <input class="form-control" name="estoque_minimo" type="number" min="0" step="1" value="0" />
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Categoria</label>
+      <select class="form-select" name="categoria_id" required>
+        <option value="">Selecione</option>
+        <% cats.forEach(c => { %>
+          <option value="<%= c.id %>"><%= c.nome %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Unidade</label>
+      <select class="form-select" name="unidade_id" required>
+        <option value="">Selecione</option>
+        <% unds.forEach(u => { %>
+          <option value="<%= u.id %>"><%= u.nome %> (<%= u.sigla %>)</option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Fornecedor</label>
+      <select class="form-select" name="fornecedor_id">
+        <option value="">Opcional</option>
+        <% forns.forEach(f => { %>
+          <option value="<%= f.id %>"><%= f.nome %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary">Salvar</button>
+      <a class="btn btn-secondary" href="/estoque">Cancelar</a>
+    </div>
+  </div>
+</form>
+
+

@@ -1,0 +1,7 @@
+body { background-color: #f8fafc; }
+.navbar-brand { font-weight: 600; }
+.card { border: none; }
+.card .card-header { background: #fff; border-bottom: 1px solid #e9ecef; }
+.table thead th { white-space: nowrap; }
+
+

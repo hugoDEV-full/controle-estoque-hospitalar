@@ -1,0 +1,59 @@
+<h3 class="mb-4">Cadastros básicos</h3>
+
+<div class="row g-4">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Categorias</div>
+      <div class="card-body">
+        <form method="post" action="/cadastros/categorias" class="d-flex gap-2 mb-3">
+          <input class="form-control" name="nome" placeholder="Nova categoria" required />
+          <button class="btn btn-primary">Adicionar</button>
+        </form>
+        <ul class="list-group">
+          <% cats.forEach(c => { %>
+            <li class="list-group-item"><%= c.nome %></li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Unidades</div>
+      <div class="card-body">
+        <form method="post" action="/cadastros/unidades" class="d-flex gap-2 mb-3">
+          <input class="form-control" name="nome" placeholder="Nome" required />
+          <input class="form-control" name="sigla" placeholder="Sigla" required />
+          <button class="btn btn-primary">Adicionar</button>
+        </form>
+        <ul class="list-group">
+          <% unds.forEach(u => { %>
+            <li class="list-group-item"><%= u.nome %> (<%= u.sigla %>)</li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Fornecedores</div>
+      <div class="card-body">
+        <form method="post" action="/cadastros/fornecedores" class="row g-2 mb-3">
+          <div class="col-12"><input class="form-control" name="nome" placeholder="Nome" required /></div>
+          <div class="col-6"><input class="form-control" name="cnpj" placeholder="CNPJ" /></div>
+          <div class="col-6"><input class="form-control" name="contato" placeholder="Contato" /></div>
+          <div class="col-12"><button class="btn btn-primary w-100">Adicionar</button></div>
+        </form>
+        <ul class="list-group">
+          <% forns.forEach(f => { %>
+            <li class="list-group-item d-flex justify-content-between"><span><%= f.nome %></span><small class="text-muted"><%= f.cnpj %></small></li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
